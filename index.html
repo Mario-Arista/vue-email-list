@@ -17,32 +17,37 @@
     <!-- VUE 3 -->
     <script src="https://unpkg.com/vue@3"></script>
 
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+
     <div id="app" class="container py-5">
         
         <h1 class="mb-5 text-white text-center">
             Email List
         </h1>
 
-        <div id="container-mail">
+        <div id="container-mail"
+            v-if="emails.length > 0"
+        >
             
             <!-- Lista mail -->
-            <ul id="emails" class="custom-width mb-4 m-auto">
-
+            <ul id="emails" 
+                class="custom-width m-auto"
+                v-for="(email, index) in emails"
+            >
                 <li class=" email list-group-item d-flex justify-content-between align-items-center bg-transparent text-white p-3">
-                    <span class="border border-1 border-success">
-                           
+                    <span class="border border-1 border-success p-2">
+                           {{ (index + 1) + " - " + emails[index] }}
                     </span>
 
                 </li>
             </ul>
 
-            <!-- Paragrafo in caso non ci siano mails -->
-            <p v-else class="custom-width text-warning m-auto text-center">
-                    Non ci sono emails!
-            </p>
-
-
         </div> 
+        <!-- Paragrafo in caso non ci siano mails -->
+        <p v-else class="custom-width text-warning m-auto text-center">
+            Non ci sono emails!
+        </p>
 
     </div>
 
