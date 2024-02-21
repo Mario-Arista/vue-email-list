@@ -26,14 +26,13 @@
             Email List
         </h1>
 
-        <div id="container-mail"
-            v-if="emails.length > 0"
-        >
-            
+        <div id="container-mail">
+
             <!-- Lista mail -->
             <ul id="emails" 
                 class="custom-width m-auto"
                 v-for="(email, index) in emails"
+                v-show="emails.length === 10"
             >
                 <li class=" email list-group-item d-flex justify-content-between align-items-center bg-transparent text-white p-3">
                     <span class="border border-1 border-success p-2">
@@ -44,10 +43,6 @@
             </ul>
 
         </div> 
-        <!-- Paragrafo in caso non ci siano mails -->
-        <p v-else class="custom-width text-warning m-auto text-center">
-            Non ci sono emails!
-        </p>
 
     </div>
 
